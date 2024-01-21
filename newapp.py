@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
+import joblib
 app = Flask(__name__)
 app.secret_key='SECRET_KEY'
 
@@ -15,11 +16,8 @@ def dateAndTime():
         return render_template('queueDateAndTime.html')
     if request.method == 'POST':
         session['dateTime'] = "09:26:00, Mon"
-        return redirect("../resultPage")
-    
-@app.route('/resultPage', methods=['POST', 'GET'])
-def result():
-    return render_template('resultPage.html')
+
+        return redirect("/resultPage")
 
 
 @app.route('/killerMMR')
@@ -75,6 +73,71 @@ def userRegion():
         userRegion = request.form['playerRegion']
         session['playerRegion'] = userRegion
         return redirect('/queueTime')
+    
+@app.route('/resultPage', methods=['POST', 'GET'])
+def resultPage():
+    # Load the trained model
+    model = joblib.load('your_model.pkl')
+    #load the label encoders
+    le_list_x = joblib.load('le_list_x.pkl')
+    le_y = joblib.load('le_y.pkl')
+    
+    time = session['dateTime'].split(", ")
+    user_input = [time[0], time[1], session['playerRole'], session['numSurvivors'], session['playerRegion'], session['partyMMR']]
+    # user_input = ["00:00:00", "Sun", "Killer", 1, "us-east-1", 1]
+    
+    # Encode the user input into numerical values
+    for i in range(len(user_input)):
+    # Check if the value is in the classes_ attribute
+        if user_input[i] not in le_list_x[i].classes_:
+        # If not, add it to classes_
+            le_list_x[i].classes_ = np.append(le_list_x[i].classes_, user_input[i])
+        # Transform the value
+            user_input[i] = le_list_x[i].transform([user_input[i]])[0]
+            
+    prediction = model.predict([user_input])
+    prediction = prediction.astype(int)
+    predicted_output = le_y.inverse_transform(prediction)      
+    if request.method == 'GET':
+        return render_template('resultPage.html', predicted_output = predicted_output)
+    if request.method == 'POST':
+        return redirect('/')
+def predict():
+    
+    # Load the trained model
+    model = joblib.load('your_model.pkl')
+#load the label encoders
+    le_list_x = joblib.load('le_list_x.pkl')
+    le_y = joblib.load('le_y.pkl')
+    
+    datetime.datetime(year, month, date).strftime("%a")
+
+    data = request.get_json()
+    user_input = data['user_input']  # Adjust based on your input format
+    
+    user_input = ["00:00:00", "Sun", "Killer", 1, "us-east-1", 1]
+    
+    # Encode the user input into numerical values
+    for i in range(len(user_input)):
+    # Check if the value is in the classes_ attribute
+        if user_input[i] not in le_list_x[i].classes_:
+        # If not, add it to classes_
+        le_list_x[i].classes_ = np.append(le_list_x[i].classes_, user_input[i])
+        # Transform the value
+        user_input[i] = le_list_x[i].transform([user_input[i]])[0]
+          
+        
+            
+        
+    # Use the loaded model to make predictions
+    # We specify [0] because the predict() method returns a list of predictions,
+    # and we only have a single prediction
+    prediction = model.predict([user_input])
+    prediction = prediction.astype(int)
+    predicted_output = le_y.inverse_transform(prediction)
+
+
+    response = {'prediction': predicted_output}    
 
 
 if __name__ == '__main__':
