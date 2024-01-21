@@ -1,16 +1,17 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 app = Flask(__name__)
+app.secret_key='SECRET_KEY'
 
 @app.route('/')
 def landing():
     if request.method == 'GET':
-        return render_template('index.html', boolean=True)
+        return render_template('index.html')
     if request.method == 'POST':
         return redirect()
 
 @app.route('/queueTime')
 def dateAndTime():
-    return render_template('queueDateAndTime.html', boolean=True)
+    return render_template('queueDateAndTime.html')
 
 @app.route('/killerMMR')
 def killerMMR():
@@ -18,15 +19,25 @@ def killerMMR():
 
 @app.route('/survivorMMR')
 def survivorMMR():
-    return render_template('survivorMMR.html')
+    if request.method == 'GET':
+        numSur = session['numSurvivors']
+        print(numSur)
+        return render_template('survivorMMR.html', numSur = numSur)
 
 @app.route('/playerRole')
 def playerRole():
     return render_template('playerRole.html')
 
-@app.route('/partySize')
+@app.route('/partySize', methods=['POST', 'GET'])
 def partySize():
-    return render_template('survivorPartySize.html')
+    if request.method == 'POST':
+        numSurvivors = request.form.get("hidden_input")
+        print(numSurvivors)
+        session['numSurvivors']=numSurvivors
+        print(session['numSurvivors'])
+        return redirect('../survivorMMR')
+    if request.method == 'GET':
+        return render_template('survivorPartySize.html')
 
 @app.route('/userPlatform')
 def userPlatform():

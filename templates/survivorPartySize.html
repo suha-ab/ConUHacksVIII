@@ -16,15 +16,18 @@
         <button class="buttonHome">🏠︎</button>
     </div>
     <a href=""></a>
-    <table>
-        <tr>
-            <th><img src="../static/LaurieStore.webp" id="player1" onclick="selectPlayer(1)" onmouseover="hoverOnPlayers(1)" onmouseout="hoverOffPlayers()"></th>
-            <th><img src="../static/StoreBackground_KS.webp" id="player2" onclick="selectPlayer(2)" onmouseover="hoverOnPlayers(2)" onmouseout="hoverOffPlayers()"></th>
-            <th><img src="../static/AS_CM_charPreview.webp" id="player3" onclick="selectPlayer(3)" onmouseover="hoverOnPlayers(3)" onmouseout="hoverOffPlayers()"></th>
-            <th><img src="../static/DS_BO_charPreview.webp" id="player4" onclick="selectPlayer(4)" onmouseover="hoverOnPlayers(4)" onmouseout="hoverOffPlayers()"></th>
-        </tr>
-    </table>
+    <form id="partySizeForm" action="" method="POST">
+        <input type="hidden" value="" id="hidden_input" name="hidden_input">
+        <table>
+            <tr>
+                <th><img src="../static/LaurieStore.webp" id="player1" onclick="selectPlayer(1)" onmouseover="hoverOnPlayers(1)" onmouseout="hoverOffPlayers()"></th>
+                <th><img src="../static/StoreBackground_KS.webp" id="player2" onclick="selectPlayer(2)" onmouseover="hoverOnPlayers(2)" onmouseout="hoverOffPlayers()"></th>
+                <th><img src="../static/AS_CM_charPreview.webp" id="player3" onclick="selectPlayer(3)" onmouseover="hoverOnPlayers(3)" onmouseout="hoverOffPlayers()"></th>
+                <th><img src="../static/DS_BO_charPreview.webp" id="player4" onclick="selectPlayer(4)" onmouseover="hoverOnPlayers(4)" onmouseout="hoverOffPlayers()"></th>
+            </tr>
+        </table>
+    </form>
 
-    <script src="../script.js"></script>
+    <script src="../static/script.js"></script>
 </body>
 </html>
