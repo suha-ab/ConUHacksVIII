@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body onload="loadSurvivorsInParty()">
-    <input type="hidden" id="numSur" value="{{numSur}}">
     <h1 class="gradientText">PLAYER MMRS</h1>
     <table>
         <tr>
@@ -22,15 +21,19 @@
         <tr>
             <th class="survivorMMRColSpan">
                 <button id="decrease">–</button>
-                <span id="value">5</span>
+                <span value="" name="value" id="value">5</span>
                 <button id="increase">+</button>
             </th>
         </tr>
         <tr>
-            <th class="survivorMMRColSpan"><button class="submitMMR" onmouseover="hoverOnButton(this)" onmouseout="hoverOffButton(this)">SUBMIT</button></th>
+            <form id="MMRform" method="POST">
+                <input type="hidden" id="valueMMR" value="valueMMR" name="valueMMR">
+                <input type="hidden" id="numSur" value="{{numSur}}">
+            <th class="survivorMMRColSpan"><button class="submitMMR" onclick="submitMMRForm()" onmouseover="hoverOnButton(this)" onmouseout="hoverOffButton(this)">SUBMIT</button></th>
+            </form>
         </tr>
     </table>
-
+    
     <script src="../static/script.js"></script>
 </body>
 </html>

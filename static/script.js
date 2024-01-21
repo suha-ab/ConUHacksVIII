@@ -202,3 +202,8 @@ function selectPlayer(num){
     console.log("this is"+ document.getElementById('hidden_input').value);
     document.getElementById("partySizeForm").submit();
 };
+
+function submitMMRForm(){
+    document.getElementById("valueMMR").value=valueSpan.textContent;
+    document.getElementById("MMRform").submit();
+}

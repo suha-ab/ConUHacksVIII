@@ -17,12 +17,16 @@ def dateAndTime():
 def killerMMR():
     return render_template('killerMMR.html')
 
-@app.route('/survivorMMR')
+@app.route('/survivorMMR', methods=['POST', 'GET'])
 def survivorMMR():
     if request.method == 'GET':
         numSur = session['numSurvivors']
         print(numSur)
         return render_template('survivorMMR.html', numSur = numSur)
+    if request.method == 'POST':
+        session['partyMMR']=request.form.get("valueMMR")
+        print(session['partyMMR'])
+        return redirect('../userPlatform')
 
 @app.route('/playerRole')
 def playerRole():
