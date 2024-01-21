@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{url_for('static',filename='css/output.css')}}" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="h-screen bg-black w-screen flex flex-col items-end justify-center">
+        
+        <h1 class="self-center text-[50px] font-mono bg-gradient-to-b from-orange-800 via-orange-900 to-slate-900 inline-block text-transparent bg-clip-text">Queue Date and Time</h1>
+        <!--
+        <input class="text-white text-[80px] font-mono content-stretch bg-black h-1/2 w-2/3" type="datetime-local" id="meeting-time" name="meeting-time" value="2018-06-12T19:30"
+            min="2018-06-07T00:00" max="2018-06-14T00:00" />
+        -->
+        <input class="text-slate-300 bg-black text-[80px] py-9" type="datetime-local">
+    </div>
+</body>
+
+</html>

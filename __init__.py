@@ -5,6 +5,9 @@ def create_app():
 
 
     from .home import home
+    from .queueTime import queueTime
 
     app.register_blueprint(home)
+    app.register_blueprint(queueTime, url_prefix="/")
+
     return app
