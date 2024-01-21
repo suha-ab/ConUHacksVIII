@@ -16,6 +16,11 @@ def dateAndTime():
     if request.method == 'POST':
         session['dateTime'] = "09:26:00, Mon"
         return redirect("../resultPage")
+    
+@app.route('/resultPage', methods=['POST', 'GET'])
+def result():
+    return render_template('resultPage.html')
+
 
 @app.route('/killerMMR')
 def killerMMR():
