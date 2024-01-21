@@ -32,7 +32,7 @@ def survivorMMR():
         print(session['partyMMR'])
         return redirect('../userPlatform')
 
-@app.route('/playerRole')
+@app.route('/playerRole', methods=['POST', 'GET'])
 def playerRole():
     if request.method == "GET":
         return render_template('playerRole.html')
