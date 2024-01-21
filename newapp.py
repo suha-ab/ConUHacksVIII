@@ -4,13 +4,13 @@ app = Flask(__name__)
 @app.route('/')
 def landing():
     if request.method == 'GET':
-        return render_template('index.html', boolean=True)
+        return render_template('index.html')
     if request.method == 'POST':
         return redirect()
 
 @app.route('/queueTime')
 def dateAndTime():
-    return render_template('queueDateAndTime.html', boolean=True)
+    return render_template('queueDateAndTime.html')
 
 @app.route('/killerMMR')
 def killerMMR():
