@@ -122,7 +122,7 @@ def predict():
     # Check if the value is in the classes_ attribute
         if user_input[i] not in le_list_x[i].classes_:
         # If not, add it to classes_
-        le_list_x[i].classes_ = np.append(le_list_x[i].classes_, user_input[i])
+            le_list_x[i].classes_ = np.append(le_list_x[i].classes_, user_input[i])
         # Transform the value
         user_input[i] = le_list_x[i].transform([user_input[i]])[0]
           
