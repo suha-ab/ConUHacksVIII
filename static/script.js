@@ -206,4 +206,8 @@ function selectPlayer(num){
 function submitMMRForm(){
     document.getElementById("valueMMR").value=valueSpan.textContent;
     document.getElementById("MMRform").submit();
-}
+};
+
+function submitPlatformForm(){
+    document.getElementById("platformForm").submit();
+};

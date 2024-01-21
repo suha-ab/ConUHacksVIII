@@ -9,9 +9,13 @@ def landing():
     if request.method == 'POST':
         return redirect()
 
-@app.route('/queueTime')
+@app.route('/queueTime', methods=['POST', 'GET'])
 def dateAndTime():
-    return render_template('queueDateAndTime.html')
+    if request.method== 'GET':
+        return render_template('queueDateAndTime.html')
+    if request.method == 'POST':
+        session['dateTime'] = "09:26:00, Mon"
+        return redirect("../resultPage")
 
 @app.route('/killerMMR')
 def killerMMR():
@@ -43,9 +47,12 @@ def partySize():
     if request.method == 'GET':
         return render_template('survivorPartySize.html')
 
-@app.route('/userPlatform')
+@app.route('/userPlatform', methods=['POST', 'GET'])
 def userPlatform():
-    return render_template('userPlatform.html')
+    if request.method == 'GET':
+        return render_template('userPlatform.html')
+    if request.method == 'POST':
+        return redirect("../userRegion")
 
 @app.route('/userRegion')
 def userRegion():

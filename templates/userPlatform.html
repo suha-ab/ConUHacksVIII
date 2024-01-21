@@ -16,22 +16,23 @@
         <button class="buttonHome">🏠︎</button>
     </div>
     <a href=""></a>
+    <form method="POST" id="platformForm">
     <table>
         <tr>
             <th>
-                <img src="../static/console-Steam.png" class="platform" id="platform1" onmouseover="hoverOnPlatform(1)" onmouseout="hoverOffPlatform()">
-                <img src="../static/console-EGS.png" class="platform" id="platform2" onmouseover="hoverOnPlatform(2)" onmouseout="hoverOffPlatform()">
-                <img src="../static/console-Switch.png" class="platform" id="platform3" onmouseover="hoverOnPlatform(3)" onmouseout="hoverOffPlatform()">
+                <img src="../static/console-Steam.png" class="platform" id="platform1" onclick="submitPlatformForm()" onmouseover="hoverOnPlatform(1)" onmouseout="hoverOffPlatform()">
+                <img src="../static/console-EGS.png" class="platform" id="platform2" onclick="submitPlatformForm()" onmouseover="hoverOnPlatform(2)" onmouseout="hoverOffPlatform()">
+                <img src="../static/console-Switch.png" class="platform" id="platform3" onclick="submitPlatformForm()" onmouseover="hoverOnPlatform(3)" onmouseout="hoverOffPlatform()">
             </th>
         </tr>
         <tr>
             <th>
-                <img src="../static/console-Xbox.png" class="platform" id="platform4" onmouseover="hoverOnPlatform(4)" onmouseout="hoverOffPlatform()">
-                <img src="../static/console-PS.png" class="platform" id="platform5" onmouseover="hoverOnPlatform(5)" onmouseout="hoverOffPlatform()">
+                <img src="../static/console-Xbox.png" class="platform" id="platform4" onclick="submitPlatformForm()" onmouseover="hoverOnPlatform(4)" onmouseout="hoverOffPlatform()">
+                <img src="../static/console-PS.png" class="platform" id="platform5" onclick="submitPlatformForm()" onmouseover="hoverOnPlatform(5)" onmouseout="hoverOffPlatform()">
             </th>
         </tr>
     </table>
-
+    </form>
     <script src="../static/script.js"></script>
 </body>
 </html>
