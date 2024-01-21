@@ -62,9 +62,14 @@ def userPlatform():
     if request.method == 'POST':
         return redirect("../userRegion")
 
-@app.route('/userRegion')
+@app.route('/userRegion', methods=['POST','GET'])
 def userRegion():
-    return render_template('userRegion.html')
+    if request.method == 'GET':
+        return render_template('userRegion.html')
+    else:
+        userRegion = request.form['playerRegion']
+        session['playerRegion'] = userRegion
+        return redirect('/queueTime')
 
 
 if __name__ == '__main__':

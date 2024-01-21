@@ -222,3 +222,31 @@ function recordPlayer(playerRole){
     console.log(document.getElementById('playerRole').value)
     document.getElementById("partyRoleForm").submit();
 }
+
+function recordRegion(regionNum){
+    if(regionNum == 1){
+        document.getElementById('playerRegion').value = "ap-southeast-1";
+    }
+    else if (regionNum == 2){
+        document.getElementById('playerRegion').value = "ap-southeast-2";
+    }
+    else if (regionNum == 3){
+        document.getElementById('playerRegion').value = "oc-central-1";
+    }
+    else if (regionNum == 4) {
+        document.getElementById('playerRegion').value = "eu-central-1";
+    }
+    else if (regionNum == 5) {
+        document.getElementById('playerRegion').value = "eu-west-2";
+    }
+    else if (regionNum == 6) {
+        document.getElementById('playerRegion').value = "us-east-1";
+    }
+    else if (regionNum == 7) {
+        document.getElementById('playerRegion').value = "us-west-2";
+    }
+    else if (regionNum == 8) {
+        document.getElementById('playerRegion').value = "la-south-1 ";
+    }
+    document.getElementById("userRegionForm").submit();
+}
