@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player MMR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <h1 class="gradientText">PLAYER MMR</h1>
+    <table>
+        <tr>
+            <th><img src="../static/New_Store_Nurse.webp" class="playerRole playerChosen" id="roleKiller"></th>
+        </tr>
+        <tr>
+            <th>
+                <button id="decrease">–</button>
+                <span id="value">5</span>
+                <button id="increase">+</button>
+            </th>
+        </tr>
+        <tr>
+            <th><button class="submitMMR" onmouseover="hoverOnButton(this)" onmouseout="hoverOffButton(this)">SUBMIT</button></th>
+        </tr>
+    </table>
+
+    <script src="../script.js"></script>
+</body>
+</html>
