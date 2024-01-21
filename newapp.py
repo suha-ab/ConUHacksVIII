@@ -34,7 +34,15 @@ def survivorMMR():
 
 @app.route('/playerRole')
 def playerRole():
-    return render_template('playerRole.html')
+    if request.method == "GET":
+        return render_template('playerRole.html')
+    if request.method == "POST":
+        playerRole = request.form["playerRole"]
+        session['playerRole'] = playerRole
+        if playerRole == "killer":
+            return redirect("../killerMMR")
+        else:
+            return redirect("../partySize")
 
 @app.route('/partySize', methods=['POST', 'GET'])
 def partySize():
