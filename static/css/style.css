@@ -12,13 +12,38 @@ table {
     transform: translate(50%, -50%);
 }
 .gradientText {
-    position: absolute;
     text-align: center;
+    top: 15%;
+    left: 25%;
+    right: 25%;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 4rem;
+    margin: 0;
+    padding: 0;
     background-image: linear-gradient(#835656, #000000);
     background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+.buttonBack {
+    position: absolute;
+    top: 5%;
+    left: 15%;
+    color: #ffffff81;
+    font-size: 2rem;
+    background-color: #00000000;
+    border: none;
+}
+.buttonHome {
+    position: absolute;
+    top: 5%;
+    right: 15%;
+    color: #ffffff81;
+    font-size: 2rem;
+    background-color: #00000000;
+    border: none;
+}
+.buttonBack:hover, .buttonHome:hover {
+    color: #FFFFFF;
 }
 .playerRole {
     height: 300px;

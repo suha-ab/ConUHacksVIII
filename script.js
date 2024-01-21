@@ -108,16 +108,6 @@ increaseButton.addEventListener('click', () => {
     }
 });
 
-// function hoverOnButton() {
-//     this.background-color = "#79070781";
-//     this.transition = "0.3s";
-// }
-
-// function hoverOffButton() {
-//     this.background-color = "#ffffff81";
-//     this.transition = "0.3s";
-// }
-
 function hoverOnPlatform(number) {
     switch(number) {
         case 1:
@@ -159,39 +149,55 @@ function hoverOffPlatform() {
 function hoverOnPin(name) {
     switch(name) {
         case 'pinApSouthEast':
-            pinApSouthEast.style.height = '6rem';
+            pinApSouthEast.src = "../static/pinHover.png";
+            pinApSouthEast.style.opacity = "0.7";
             break;
         case 'pinApNorthEast':
-            pinApNorthEast.style.height = '6rem';
+            pinApNorthEast.src = "../static/pinHover.png";
+            pinApNorthEast.style.opacity = "0.7";
             break;
         case 'pinOceCentral':
-            pinOceCentral.style.height = '6rem';
+            pinOceCentral.src = "../static/pinHover.png";
+            pinOceCentral.style.opacity = "0.7";
             break;
         case 'pinEuCentral':
-            pinEuCentral.style.height = '6rem';
+            pinEuCentral.src = "../static/pinHover.png";
+            pinEuCentral.style.opacity = "0.7";
             break;
         case 'pinEuWest':
-            pinEuWest.style.height = '6rem';
+            pinEuWest.src = "../static/pinHover.png";
+            pinEuWest.style.opacity = "0.7";
             break;
         case 'pinUsEast':
-            pinUsEast.style.height = '6rem';
+            pinUsEast.src = "../static/pinHover.png";
+            pinUsEast.style.opacity = "0.7";
             break;
         case 'pinUsWest':
-            pinUsWest.style.height = '6rem';
+            pinUsWest.src = "../static/pinHover.png";
+            pinUsWest.style.opacity = "0.7";
             break;
         case 'pinLaSouth':
-            pinLaSouth.style.height = '6rem';
+            pinLaSouth.src = "../static/pinHover.png";
+            pinLaSouth.style.opacity = "0.7";
             break;
     }
 };
 
 function hoverOffPin() {
-    pinApSouthEast.style.height = '4rem';
-    pinApNorthEast.style.height = '4rem';
-    pinOceCentral.style.height = '4rem';
-    pinEuCentral.style.height = '4rem';
-    pinEuWest.style.height = '4rem';
-    pinUsEast.style.height = '4rem';
-    pinUsWest.style.height = '4rem';
-    pinLaSouth.style.height = '4rem';
+    pinApSouthEast.src = "../static/pin.png";
+    pinApSouthEast.style.opacity = "1";
+    pinApNorthEast.src = "../static/pin.png";
+    pinApNorthEast.style.opacity = "1";
+    pinOceCentral.src = "../static/pin.png";
+    pinOceCentral.style.opacity = "1";
+    pinEuCentral.src = "../static/pin.png";
+    pinEuCentral.style.opacity = "1";
+    pinEuWest.src = "../static/pin.png";
+    pinEuWest.style.opacity = "1";
+    pinUsEast.src = "../static/pin.png";
+    pinUsEast.style.opacity = "1";
+    pinUsWest.src = "../static/pin.png";
+    pinUsWest.style.opacity = "1";
+    pinLaSouth.src = "../static/pin.png";
+    pinLaSouth.style.opacity = "1";
 };
