@@ -17,8 +17,11 @@
   </div>
     <table>
         <tr>
-            <th><a href="/killerMMR" onclick="submitFunc()"><img src="../static/New_Store_Nurse.webp" class="playerRole"></a></th>
-            <th><a href="/partySize" onclick="submitFunc()"><img src="../static/New_Store_Feng.webp" class="playerRole"></a></th>
+            <form id="partyRoleForm" method="POST">
+                <input type="hidden" value="" id="playerRole" name="playerRole">
+            <th><a type="button" onclick="recordPlayer(1)"><img src="../static/New_Store_Nurse.webp" class="playerRole"></a></th>
+            <th><a type="button" onclick="recordPlayer(2)"><img src="../static/New_Store_Feng.webp" class="playerRole"></a></th>
+            </form>
         </tr>
     </table>
 

@@ -207,3 +207,14 @@ function submitMMRForm(){
     document.getElementById("valueMMR").value=valueSpan.textContent;
     document.getElementById("MMRform").submit();
 }
+
+function recordPlayer(playerRole){
+    if(playerRole == 1){
+        document.getElementById('playerRole').value = "killer";
+    }
+    else{
+        document.getElementById('playerRole').value = "survivor";
+    }
+    console.log(document.getElementById('playerRole').value)
+    document.getElementById("partyRoleForm").submit();
+}
