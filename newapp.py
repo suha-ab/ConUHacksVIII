@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 import joblib
+import numpy as np
 app = Flask(__name__)
 app.secret_key='SECRET_KEY'
 
@@ -16,9 +17,7 @@ def dateAndTime():
         return render_template('queueDateAndTime.html')
     if request.method == 'POST':
         session['dateTime'] = "09:26:00, Mon"
-
         return redirect("/resultPage")
-
 
 @app.route('/killerMMR')
 def killerMMR():
@@ -84,7 +83,7 @@ def resultPage():
     
     time = session['dateTime'].split(", ")
     user_input = [time[0], time[1], session['playerRole'], session['numSurvivors'], session['playerRegion'], session['partyMMR']]
-    # user_input = ["00:00:00", "Sun", "Killer", 1, "us-east-1", 1]
+    #user_input = ["00:00:00", "Sun", "Killer", 1, "us-east-1", 1]
     
     # Encode the user input into numerical values
     for i in range(len(user_input)):
@@ -93,7 +92,9 @@ def resultPage():
         # If not, add it to classes_
             le_list_x[i].classes_ = np.append(le_list_x[i].classes_, user_input[i])
         # Transform the value
-            user_input[i] = le_list_x[i].transform([user_input[i]])[0]
+        user_input[i] = le_list_x[i].transform([user_input[i]])[0]
+            
+    print(user_input)        
             
     prediction = model.predict([user_input])
     prediction = prediction.astype(int)
