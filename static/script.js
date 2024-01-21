@@ -71,6 +71,7 @@ function hoverOffPlayers() {
 
 function loadSurvivorsInParty() {
     // Player 1.
+    survivorPartySize=document.getElementById("numSur").value;
     if(survivorPartySize >= 1) {
         player1Chosen.style.height = "400px";
         player1Chosen.style.filter = "grayscale(0)";
@@ -194,4 +195,10 @@ function hoverOffPin() {
     pinUsEast.style.height = '4rem';
     pinUsWest.style.height = '4rem';
     pinLaSouth.style.height = '4rem';
+};
+
+function selectPlayer(num){
+    document.getElementById('hidden_input').value=num;
+    console.log("this is"+ document.getElementById('hidden_input').value);
+    document.getElementById("partySizeForm").submit();
 };
